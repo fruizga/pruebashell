@@ -1,19 +1,26 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-char *shell_read_line(void)
+int main(void)
 {
-	int size = 1024;
+	size_t size = 1024;
 	int pos = 0;
-	char *buff= malloc(sizeof(char) * size);
+	char *buff = malloc(sizeof(char) * size);
+	int len = 0;
 
 	if (buff == NULL)
 	{
-		dprintf(stderr, "Imposible allocate memory\n");
+		printf("Imposible allocate memory\n");
 		exit(100);
 	}
 
-	while (1)
+	while (len = getline(&buff, &size, stdin) >= 0)
 	{
-		// ya casi
+		printf("%d", buff[pos]);
+
+		pos++;	
 	}
+
+	return (0);
 }
