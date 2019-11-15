@@ -1,8 +1,12 @@
 #include <stdio.h>
 #include <unistd.h>
-int main(void)
+int main(int ac, char **av)
 {
+	if (av == NULL)
+	{
+		return(NULL);
+	}
+	
 
-// The shell!
 
 }
