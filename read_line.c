@@ -14,8 +14,6 @@ char *string;
 
 printf ("Please enter a string: ");
 
-/* These 2 lines are very important. */
-
 string = (char *) malloc (size);
 
 bytes_read = getline (&string, &size, stdin);
