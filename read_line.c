@@ -1,27 +1,42 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
+#include <stdlib.h>
 
-char read_line(int argc, char *argv[])
+int main()
+
 {
-	size_t size = 1024;
-	int pos = 0;
-	char *buff = malloc(sizeof(char) * size);
-	int len = 0;
 
-	if (buff == NULL)
-	{
-		printf("Imposible allocate memory\n");
-		exit(100);
-	}
+int bytes_read;
 
-	while (len = getline(&buff, &size, stdin) >= 0)
-	{
-		printf("%d", buff[pos]);
+int size = 1024;
 
-		pos++;
-	}
-	//este si es 
+char *string;
 
-	return (0);
+printf ("Please enter a string: ");
+
+/* These 2 lines are very important. */
+
+string = (char *) malloc (size);
+
+bytes_read = getline (&string, &size, stdin);
+
+if (bytes_read == -1)
+
+{
+puts ("ERROR!");
+
+}
+
+else
+
+{
+
+puts ("You entered the following string: ");
+
+puts (string);
+
+printf ("\nCurrent size for string block: %d", bytes_read);
+
+}
+return 0;
 }
