@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
-
-char **strtoken(char *string);
-char *read_line(void);
+#include "shell.h"
 
 char *read_line()
 {

@@ -1,3 +1,4 @@
+/*
 #include <stdio.h>
 
 void loop_shell(void)
@@ -6,12 +7,13 @@ int status;
 char *commandLine;
 char **arguments;
 
-do {
+while (1)
+{
 	printf("$ ");
-	commandLine = ();
-	// args = lsh_split_line(line);
+	commandLine = read_line();
+	arguments = strtoken(commandLine);
 	// status = lsh_execute(args);
-
-free(line);
 }
+free(commandLine);
 }
+*/

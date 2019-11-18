@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
-
-char *read_line(void);
-char **strtoken(char *string);
+#include "shell.h"
 
 int main(int ac, char **av)
 {
