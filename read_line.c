@@ -2,39 +2,47 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int main()
+char **strtoken(char *string);
+char *read_line(void);
 
+char *read_line()
 {
-
-int bytes_read;
-
-int size = 1024;
-
+int bytes_read, counter;
+size_t size = 1024;
 char *string;
 
-printf ("Please enter a string: ");
-
 string = (char *) malloc (size);
-
+	if (string == NULL)
+	{
+		return (NULL);
+	}
 bytes_read = getline (&string, &size, stdin);
-
-if (bytes_read == -1)
-
-{
-puts ("ERROR!");
-
+	if (bytes_read == -1)
+	{
+	perror("Error");
+	}
+return (*strtoken(string));
 }
 
-else
+/* while(1)
+	{
+		string[counter];
+		if (string == EOF || string == '\n')
+		{
+			string[counter] == '\0';
+			return (string);
 
+
+		}
+
+
+	}
+
+
+
+ else
 {
-
 puts ("You entered the following string: ");
 
-puts (string);
-
 printf ("\nCurrent size for string block: %d", bytes_read);
-
-}
-return 0;
-}
+} */
