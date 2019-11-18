@@ -5,7 +5,7 @@
 
 char *read_line()
 {
-int bytes_read, counter;
+int bytes_read;
 size_t size = 1024;
 char *string;
 
