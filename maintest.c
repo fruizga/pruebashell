@@ -12,8 +12,10 @@ int main(int ac, char **av)
 	}
 item = read_line();
 arguments = strtoken(item);
+
 item2 = executer(arguments);
-free(arguments);
+
+free(item);
 free(item2);
 return (ac);
 }
