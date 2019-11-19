@@ -6,7 +6,7 @@
 char **strtoken(char *string)
 {
 char *token;
-char **array;
+char **array = malloc (sizeof(char) * 64);
 int i = 0;
 
 token = strtok(string, " ");
