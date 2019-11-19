@@ -5,7 +5,7 @@
 
 int main(int ac, char **av)
 {
-	char *item, **arguments, **item2, **correr;
+	char *item, **arguments, **item2;
 	if (av == NULL)
 	{
 		return('\0');
