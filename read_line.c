@@ -19,7 +19,7 @@ bytes_read = getline (&string, &size, stdin);
 	{
 	perror("Error");
 	}
-return (*strtoken(string));
+return (string);
 }
 
 /* while(1)

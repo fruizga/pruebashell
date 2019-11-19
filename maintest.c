@@ -4,10 +4,14 @@
 
 int main(int ac, char **av)
 {
+	char *item, **arguments, **item2, **correr;
 	if (av == NULL)
 	{
 		return('\0');
 	}
-read_line();
+item = read_line();
+arguments = strtoken(item);
+item2 = executer(arguments);
+
 return (ac);
 }

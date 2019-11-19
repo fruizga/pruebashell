@@ -19,5 +19,5 @@ while (token)
 	token = strtok(NULL, " ");
 	i++;
 }
-return (0);
+return (array);
 }
