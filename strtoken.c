@@ -6,16 +6,18 @@
 char **strtoken(char *string)
 {
 char *token;
-char **array = malloc (sizeof(char) * 64);
-int i = 0;
+int bofe = 64, i = 0;
+char **array = malloc(bofe * sizeof(char*));;
 
-token = strtok(string, " ");
+
+
+token = strtok(string, " \n");
 while (token)
 {
 	array[i] = token;
 	printf("%s\n", token);
-	token = strtok(NULL, " ");
+	token = strtok(NULL, " \n");
 	i++;
 }
-return (0);
+return (array);
 }
