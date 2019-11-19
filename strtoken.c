@@ -11,12 +11,12 @@ char **array = malloc(bofe * sizeof(char*));;
 
 
 
-token = strtok(string, " ");
+token = strtok(string, " \n");
 while (token)
 {
 	array[i] = token;
 	printf("%s\n", token);
-	token = strtok(NULL, " ");
+	token = strtok(NULL, " \n");
 	i++;
 }
 return (array);

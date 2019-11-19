@@ -10,11 +10,13 @@
  */
 char **executer(char **array)
 {
-	char *cero = strcat("/bin/", array[0]);
+	
     //char *argv[] = {"/bin/ls", "-l", "/usr/", NULL};
 
     printf("Before execve\n");
-    if (execve(cero, array, NULL) == -1)
+    printf("El primer arguento es: %s\n", array[0]);
+
+    if (execve(array[0], array, NULL) == -1)
     {
         perror("Error:");
     }
