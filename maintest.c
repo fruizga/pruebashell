@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include "shell.h"
 
 int main(int ac, char **av)
@@ -12,6 +13,7 @@ int main(int ac, char **av)
 item = read_line();
 arguments = strtoken(item);
 item2 = executer(arguments);
-
+free(arguments);
+free(item2);
 return (ac);
 }

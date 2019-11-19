@@ -19,6 +19,7 @@ bytes_read = getline (&string, &size, stdin);
 	{
 	perror("Error");
 	}
+free(string);
 return (string);
 }
 
