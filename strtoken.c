@@ -6,10 +6,8 @@
 char **strtoken(char *string)
 {
 char *token;
-int bofe = 64, i = 0;
-char **array = malloc((bofe) * sizeof(char*));;
-
-
+int buffer = 64, i = 0;
+char **array = malloc((buffer) * sizeof(char*));;
 
 token = strtok(string, " \n");
 while (token)
