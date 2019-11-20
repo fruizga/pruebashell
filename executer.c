@@ -17,13 +17,12 @@ char **executer(char **array)
     int status;
 
     hijo = fork();
-    papid = getppid();
+    
     printf("Before execve\n");
     printf("El primer arguento es: %s\n", array[0]);
 
 if (hijo == 0) {
-    mypid = getpid();
-    printf("Hijo de las tre mil..%d\n", mypid);
+    
     if (execve(array[0], array, NULL) == -1)
     {
         perror("Error:");
@@ -35,10 +34,11 @@ if (hijo == 0) {
   }
   else {
     // Parent process
-    do {
+    /*do {
       padre = waitpid(hijo, &status, WUNTRACED);
     } while (!WIFEXITED(status) && !WIFSIGNALED(status));
-    printf("Soy tu papá perro %d , %d\n", papid, mypid);
+    printf("Soy tu papá perro %d , %d\n", papid, mypid);*/
+    wait(NULL);
   }
     //printf("After execve\n");
     return (0);
