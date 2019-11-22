@@ -7,8 +7,14 @@
 
 char **executer(char **array)
 {
-pid_t child, father, mypid, papid;
+pid_t child;
 int status;
+
+if (array == NULL)
+{
+	return (NULL);
+}
+
 child = fork();
 
 if (child == 0) 

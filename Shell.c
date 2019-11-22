@@ -15,9 +15,12 @@ int main(int ac, char **av)
 		printf("$ ");
 		readGet = read_line();
 		tokenizer = strtoken(readGet);
+		free(readGet);
 		executeShell = executer(tokenizer);
+		free(tokenizer);
 	}
 free(readGet);
 free(tokenizer);
+free(executeShell);
 return (ac);
 }

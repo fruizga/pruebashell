@@ -5,9 +5,10 @@
 
 char *read_line()
 {
-int bytes_read = 0;
-ssize_t size = 0;
-char *string = NULL;string = (char *) malloc (size);
+	signed int bytes_read = 0;
+size_t size = 0;
+char *string = NULL;
+string = (char *) malloc (size);
 	if (string == NULL)
 	{
 		return (NULL);
