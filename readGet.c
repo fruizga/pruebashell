@@ -18,6 +18,7 @@ bytes_read = getline (&string, &size, stdin);
 	{
 		end_of_file(string);
 		perror("Error");
+		exit(0);
 	}
 
 	

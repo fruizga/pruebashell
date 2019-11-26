@@ -13,7 +13,7 @@ if (array == NULL)
 		return (NULL);
 
 token = strtok(string, " \n");
-//token = strtok(e, "=");
+/*token = strtok(e, "=");*/
 while (token)
 {
 	array[i] = malloc(_strlen(token) + 1);
@@ -23,9 +23,9 @@ while (token)
 			return (NULL);
 		}
 
-	//array[i] = token;
+	/*array[i] = token;*/
 	_strncpy(array[i], token, _strlen(token) + 1);
-	printf("%s\n", token);
+	/*printf("%s\n", token);*/
 	token = strtok(NULL, " \n");
 	i++;
 }

@@ -6,10 +6,12 @@
 #include <sys/types.h>
 #include "shell.h"
 
-char **executer(char **array, char **env, char *av)
+char **executer(char **array)
 {
 pid_t child;
 int status;
+
+
 
 if (array == NULL)
 {
