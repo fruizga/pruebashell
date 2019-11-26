@@ -6,20 +6,24 @@
 #include <sys/types.h>
 #include "shell.h"
 
-char **executer(char **array)
+char **executer(char **array, char **env, char *av)
 {
 pid_t child;
 int status;
 
 if (array == NULL)
 {
-	return (NULL);
+	null_array(array);
 }
+
+else if (_strcmp("exit", array[0]))
+		get_out(array);
 
 child = fork();
 
-if (child == 0) 
+if (child == 0)
 {
+	
 	if (execve(array[0], array, NULL) == -1)
 	{
 		perror("Error: ");
@@ -28,6 +32,7 @@ if (child == 0)
 else if (child < 0)
 {
 	perror("Error: ");
+	exit(EXIT_FAILURE);
 }
 else
 {

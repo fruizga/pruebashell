@@ -16,7 +16,10 @@ string = (char *) malloc (size);
 bytes_read = getline (&string, &size, stdin);
 	if (bytes_read == -1)
 	{
+		end_of_file(string);
 		perror("Error");
 	}
+
+	
 return (string);
 }
