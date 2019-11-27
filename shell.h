@@ -11,6 +11,7 @@
 char *read_line(void);
 char **strtoken(char *string);
 char **executer(char **array);
+char **tokenizer(char *string);
 void free_grid(char **string);
 
 void end_of_file(char *buffer);

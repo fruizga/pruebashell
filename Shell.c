@@ -5,7 +5,7 @@
 
 int main(int ac, char **av)
 {
-	char *readGet, **tokenizer, **executeShell;
+	char *readGet, **tokeniz, **executeShell;
 	if (av == NULL)
 	{
 		return('\0');
@@ -14,13 +14,13 @@ int main(int ac, char **av)
 	{
 		printf("$ ");
 		readGet = read_line();
-		tokenizer = strtoken(readGet);
+		tokeniz = tokenizer(readGet);
 		/*free(readGet);*/
-		executeShell = executer(tokenizer);
+		executeShell = executer(tokeniz);
 		/*free(tokenizer);*/
 	}
 free(readGet);
-free(tokenizer);
+free(tokeniz);
 free(executeShell);
 return (ac);
 }
