@@ -5,7 +5,7 @@
 
 int main(int ac, char **av)
 {
-    char *readGet, *path, *tokenReadLine, **tokeniz, **executeShell, **patcmmd;
+    char *readGet, *path, *tokenReadLine, **tokeniz, **executeShell, *patcmmd;
     char **cmd = NULL;
     
 	if (av == NULL)
@@ -17,10 +17,9 @@ int main(int ac, char **av)
 		printf("$ ");
 		readGet = read_line();
 		//readGet[strlen - 1] = '\0';
-		cmd = tokenizer(readGet);
+        cmd = tokenizer(readGet);
 		path = getPath();
 		tokeniz = tokenizer(path);
-	    //printf("%s", tokeniz);
 		patcmmd = mixPath(tokeniz, cmd[0]);
 	//	printf("%s", patcmmd);
 		executer(patcmmd);

@@ -5,39 +5,47 @@
 *@cmd: the command
 *Return: pointer to char
 */
-char *mixPath(char *patharray, char *cmd)
+char *mixPath(char **path, char *cmd)
 {
 	char *buffer;
+	int x = 0;
 	size_t auxToken = 0, auxCommand = 0;
-
-	if (patharray == 0)
-	{
-		patharray = "";
-	}
-	if (cmd == 0)
-	{
+	char concat[] = {"/"};
+	
+    while (path[auxToken])
+    {
+        if (path[auxToken] == 0)
+	    {
+		path[auxToken] = "";
+	    }
+	    if (cmd == 0)
+	    {
 		cmd = "";
-	}
-	buffer = malloc(sizeof(char) * strlen(patharray) + strlen(cmd) + 2);
+    	}
+    	auxToken++;
+    }
+    auxToken = 0;
+	buffer = malloc(sizeof(char) * strlen(*path) + strlen(cmd) + 2);
 	if (buffer == NULL)
 	{
 		return (NULL);
 	}
-	while (patharray[auxToken])
+	while (path[auxToken])
 	{
-		buffer[auxToken] = patharray[auxToken];
-		auxToken++;
+	    x = strlen(path[auxToken]);
+	    if( path[auxToken][x -1] != '/')
+	    {
+	        buffer = strcat(path[auxToken], concat);
+	    }
+	    buffer = strcat(path[auxToken], cmd);
+	    //printf("path:%s\n", buffer);
+		if (access(buffer, F_OK | X_OK) == 0)
+		{
+		    printf("accedi");
+			return (buffer);
+		}
+		else
+		    free(buffer);
+	auxToken++;
 	}
-	if (patharray[auxToken - 1] != '/')
-	{
-		buffer[auxToken] = '/';
-		auxToken++;
-	}
-	while (cmd[auxCommand])
-	{
-		buffer[auxToken + auxCommand] = cmd[auxCommand];
-		auxCommand++;
-	}
-	buffer[auxToken + auxCommand] = '\0';
-	return (buffer);
-	}
+}
